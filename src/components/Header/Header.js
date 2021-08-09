@@ -1,31 +1,31 @@
-import MenuIcon from "@material-ui/icons/Menu";
-import SearchIcon from "@material-ui/icons/Search";
-import VideoCallIcon from "@material-ui/icons/VideoCall";
-import AppsIcon from "@material-ui/icons/Apps";
-import NotificationsIcon from "@material-ui/icons/Notifications";
-import Avatar from "@material-ui/core/Avatar";
-import "./header.css";
+import "./_header.scss";
+import { FaBars } from "react-icons/fa";
+import { AiOutlineSearch } from "react-icons/ai";
+import { MdNotifications, MdApps } from "react-icons/md";
 
-function Header() {
+function Header({ handleSetSidebar }) {
   return (
-    <div className="header">
-      <div className="header__left">
-        <MenuIcon />
-        <h1>
-          Mini<span>Tube</span>
-        </h1>
-      </div>
-      <div className="header__input">
+    <div className="header border border-dark">
+      <FaBars
+        className="header__menu"
+        size={26}
+        onClick={() => handleSetSidebar()}
+      />
+      <h1 className="header__logo">
+        Mini<span>Tube</span>
+      </h1>
+      <form>
         <input type="text" placeholder="Search" />
-        <SearchIcon className="header__inputButton" />
-      </div>
+        <button type="submit">
+          <AiOutlineSearch size={22} />
+        </button>
+      </form>
       <div className="header__icons">
-        <VideoCallIcon className="header__icon" />
-        <AppsIcon className="header__icon" />
-        <NotificationsIcon className="header__icon" />
-        <Avatar
-          alt="Nikita Agarwal"
+        <MdNotifications size={28} />
+        <MdApps size={28} />
+        <img
           src="https://avatars.githubusercontent.com/u/71252906?v=4"
+          alt="avatar"
         />
       </div>
     </div>

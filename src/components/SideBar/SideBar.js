@@ -1,30 +1,46 @@
-import SidebarRow from "../SidebarRow/SidebarRow.js";
-import HomeIcon from "@material-ui/icons/Home";
-import WhatshotIcon from "@material-ui/icons/Whatshot";
-import SubscriptionsIcon from "@material-ui/icons/Subscriptions";
-import VideoLibraryIcon from "@material-ui/icons/VideoLibrary";
-import HistoryIcon from "@material-ui/icons/History";
-import OndemandVideoIcon from "@material-ui/icons/OndemandVideo";
-import WatchLaterIcon from "@material-ui/icons/WatchLater";
-import ThumbUpAltOutlinedIcon from "@material-ui/icons/ThumbUpAltOutlined";
-import ExpandMoreOutlinedIcon from "@material-ui/icons/ExpandMoreOutlined";
-import "./SideBar.css";
+import "./_sidebar.scss";
+import {
+  MdSubscriptions,
+  MdExitToApp,
+  MdThumbUp,
+  MdHistory,
+  MdLibraryBooks,
+  MdHome,
+} from "react-icons/md";
 
-function SideBar() {
+function SideBar({ sidebar, handleSetSidebar }) {
   return (
-    <div className="sidebar">
-      <SidebarRow selected Icon={HomeIcon} title="Home" />
-      <SidebarRow Icon={WhatshotIcon} title="Trending" />
-      <SidebarRow Icon={SubscriptionsIcon} title="Subscription" />
+    <nav
+      className={sidebar ? "sidebar open" : "sidebar"}
+      onClick={() => handleSetSidebar(false)}
+    >
+      <li>
+        <MdHome size={23} />
+        <span>Home</span>
+      </li>
+      <li>
+        <MdSubscriptions size={23} />
+        <span>Subscriptions</span>
+      </li>
+      <li>
+        <MdThumbUp size={23} />
+        <span>Liked Video</span>
+      </li>
+      <li>
+        <MdHistory size={23} />
+        <span>History</span>
+      </li>
+      <li>
+        <MdLibraryBooks size={23} />
+        <span>Library</span>
+      </li>
       <hr />
-      <SidebarRow Icon={VideoLibraryIcon} title="Library" />
-      <SidebarRow Icon={HistoryIcon} title="History" />
-      <SidebarRow Icon={OndemandVideoIcon} title="Your Videos" />
-      <SidebarRow Icon={WatchLaterIcon} title="Watch Later" />
-      <SidebarRow Icon={ThumbUpAltOutlinedIcon} title="Liked Videos" />
-      <SidebarRow Icon={ExpandMoreOutlinedIcon} title="Show more" />
+      <li>
+        <MdExitToApp size={23} />
+        <span>Log Out</span>
+      </li>
       <hr />
-    </div>
+    </nav>
   );
 }
 
